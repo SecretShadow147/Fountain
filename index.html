@@ -16,7 +16,10 @@
 <body>
     <div class="container">
     <header>
-        <h1 class="logo">Fountain</h1>
+        <div class="bar-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <img src="./img/logo.png" class="logo">
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -26,11 +29,14 @@
                 <li><a href="#">Contact Us</a></li>
             </ul>
         </nav>
-
+        
         <div class="button"> 
             <button class="button button1"><i class="fa fa-search" aria-hidden="true"></i></button>
             <button class="button button1">Login</button>
             <button class="button2">Register</button>       
+        </div>
+        <div class="bar">
+            <img src="./img/user.png">
         </div>
     </header>
     <div class="content">
@@ -41,26 +47,30 @@
         <button class="scroll">
             <i class="ai-arrow-up"></i>
         </button>
-        <div>
+        
             <div class="information">
-                <i class="icon ai-chat-dots"></i>
-                <p>Live chat</p>
-                <i class="icon fa-solid fa-graduation-cap"></i>
-                <p>Examination</p>
-                <i class="icon fa-regular fa-user"></i>
-                <p>Competition</p>
+                <div class="infor1"><i class="icon ai-chat-dots"></i>Live chat</p></div>
+                <div class="infor1"><i class="icon fa-solid fa-graduation-cap"></i><p>Examination</p></div>
+                <div class="infor1"><i class="icon fa-regular fa-user"></i><p>Competition</p></div>
             </div>
-        </div>
+        
     </div>
         
-
-    <main>
         <h1 class="title">Top cartegories</h1>
         <div>
-            <p>See all</p>
+            <p class="see-card">See all</p>
+                    <div class="card">                        
+                    <img src="./img/Marketing.png">
+                    <!-- <h2>Marketing</h2> -->                        
+                    <img src="./img/Design.jpg">
+                    <!-- <h2>Design</h2> -->
+                    <img src="./img/Programming.jpg">
+                    <!-- <h2>Programming</h2> -->
+                    <img src="./img/Technology.jpg">
+                    <!-- <h2>Technology</h2> -->
+            </div>
         </div>
 
-    </main>
 
 </body>
 </html>

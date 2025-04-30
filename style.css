@@ -3,24 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    min-height: 100px;
-    min-width: 100%;
 
-}
+
 .container{
     position: relative;
-    max-width: 1440px;
-    max-height: 662px;
     margin: 0 auto;
     padding: 20px 30px;
-    justify-content: center;
-    align-items: center;
-    background-image: url(img/8d53b55a4d3f18711f55b04d165dc780525bacb2.png);
+    background-image: url(img/background1.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: -48px;
+    background-position-y: -20px;
     background-position-x: 10px -10px ;
+    background-size: 100% 690px ;
 }
 .container:before{
     content: "";
@@ -28,7 +21,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 670px;
     background: rgba(0, 0, 0, 0.4);   
     z-index: 1;
 }
@@ -36,41 +29,16 @@ body{
     position: relative;
     z-index: 2;
 }
-header{
+ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1440px;
-    max-height: 96.42893981933594px;
-    
-}
+} 
 
-.logo{
-    display: flex;
-    padding: 0px 20px;
-    justify-content: center;
-    align-items: center;
-    font-size: 32.8px;
-    font-weight: 600;
-    line-height: 100%;
-    background: #F77E23;
-    background-clip: text;
-    color: transparent;
-    
-}
-nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    padding-left: 10%;
-}
 nav ul {
     font-family: "Crimson Text", serif;
     display: flex;
-    justify-items: center;
-    align-items: center;
-    gap: 50px;
+    gap: 60px;
     list-style: none;
     text-align: center;
     vertical-align: middle;
@@ -89,6 +57,15 @@ nav a{
     display: flex;
     
     
+}
+.bar-menu{
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+}
+.bar{
+    display: none;
+    cursor: pointer;
 }
 .button{
     padding: 10px 35px;
@@ -143,12 +120,14 @@ nav a{
 }
 .content h1{
     font-family: "Crimson Text", serif;
+    flex-direction: column;
     font-size: 60px;
     font-weight: 700;
     line-height: 100%;
     letter-spacing: 0%;
     text-align: center;
-    gap: 10px;
+    margin-top: 2%;
+    flex-wrap: wrap;
 }
 .content p{
     font-family: "Crimson Text", serif;
@@ -169,36 +148,41 @@ nav a{
     font-size: 25px;
     border: none;
     padding: 10px 12px;
-    left: 80%;
+    left: 93%;
 }
 .information{
     display: flex;
     position: relative;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
     background-color: white;
     border-radius: 10px;
-    width: 40%;
+    width: 60%;
     height: 100%;
-    padding: 20px;
-    margin: 50px auto;
+    padding: 30px;
+    left: 20%;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
-.information p{
-    font-family: "Crimson Text", serif;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: 0%;
+.infor1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
 }
+
 .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     max-width: 60px;
     max-height: 60px;
     background-color:#FFE7DB ;
     color: #FF6F28;
     border-radius: 50%;
     padding: 12px;
-    
 }
 .title{
     font-family: "Crimson Text", serif;
@@ -209,5 +193,234 @@ nav a{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+.see-card{
+    font-family: "Crimson Text", serif;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5%;
+    margin-right: 5%;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #F77E23
+}
+.card{
+    display: flex;
+    position: relative;
+    max-width: 649px;
+    max-height: 432px;
+    margin-top: 60px;
+    margin-left: -299px;
+}
+@media (max-width:1100px){
+    .container{
+        background-image: url(img/background1.png);
+        background-repeat: no-repeat;
+        background-position-y: -20px;
+        background-position-x: 10px -10px ;
+        background-size: 100% 720px ;
+    }
+    .container:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 700px;
+        background: rgba(0, 0, 0, 0.4);   
+        z-index: 1;
+    }
+    .container > *{
+        position: relative;
+        z-index: 2;
+    }
+    header{
+        display: flex;
+        position: fixed;
+        background-color: white;
+        z-index: 3;
+    }
+    .button{
+        display: none;
+    }
+    .bar{
+        display: block;
+        position: relative;
+    }
+    nav {
+        display: none;
+    }
+    .bar-menu{
+        display: block;
+        position: relative;
+        color: rgb(148, 141, 141);
+        padding: 0px 20px;
+    }
+    .scroll{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        background: #F77E23;
+        border-radius: 5000px;
+        font-size: 25px;
+        border: none;
+        padding: 10px 12px;
+        left: 93%;
+    }
+}
+@media (max-width:792px){
+    .container{
+        background-image: url(img/background1.png);
+        background-repeat: no-repeat;
+        background-position-y: -20px;
+        background-position-x: 10px -10px ;
+        background-size: 100% 650px ;
+    }
+    .container:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 630px;
+        background: rgba(0, 0, 0, 0.4);   
+        z-index: 1;
+    }
+    .container > *{
+        position: relative;
+        z-index: 2;
+    }
+    .content h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    .scroll{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        background: #F77E23;
+        border-radius: 5000px;
+        font-size: 25px;
+        border: none;
+        padding: 10px 12px;
+        left: 90%;
+    }
+
+}
+@media (max-width: 750px){
+    .content h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+
+}
+@media (max-width:635px){
+    .information{
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 100%;
+        padding: 20px;
+        left: 10%;
+        margin-top: 20px;
+    }
+}
+@media (max-width:554px){
+    .container{
+        background-image: url(img/background1.png);
+        background-repeat: no-repeat;
+        background-position-y: -20px;
+        background-position-x: 10px -10px ;
+        background-size: 100% 670px ;
+    }
+    .container:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 650px;
+        background: rgba(0, 0, 0, 0.4);   
+        z-index: 1;
+    }
+    .container > *{
+        position: relative;
+        z-index: 2;
+    }
+    .scroll{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        background: #F77E23;
+        border-radius: 5000px;
+        font-size: 25px;
+        border: none;
+        padding: 10px 12px;
+        left: 85%;
+    }
+}
+@media (max-width: 477px){
+    .container{
+        background-image: url(img/background1.png);
+        background-repeat: no-repeat;
+        background-position-y: -20px;
+        background-position-x: 10px -10px ;
+        background-size: 100% 670px ;
+    }
+    .container:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 650px;
+        background: rgba(0, 0, 0, 0.4);   
+        z-index: 1;
+    }
+    .container > *{
+        position: relative;
+        z-index: 2;
+    }
+    .content p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+    .icon {
+        max-width: 40px;
+        max-height: 40px;
+        padding: 8px;
+    }
+    .scroll{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        background: #F77E23;
+        border-radius: 5000px;
+        font-size: 25px;
+        border: none;
+        padding: 10px 12px;
+        left: 85%;
+    }
 }
