@@ -3,9 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
 
 .container{
+    width: 100%;
     position: relative;
     margin: 0 auto;
     padding: 20px 30px;
@@ -29,11 +35,13 @@
     position: relative;
     z-index: 2;
 }
- header{
+.menu{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 } 
+
 
 nav ul {
     font-family: "Crimson Text", serif;
@@ -51,7 +59,29 @@ nav a{
     font-weight: 600;
     line-height: 48px;
     letter-spacing: -2%;
+    position: relative;
+    transition: color 0.3s ease-in-out;
     
+}
+nav a:hover {
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+    background-clip: text;
+    color: transparent;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #9932CC, #FF69B4); 
+    transition: width 0.3s ease-in-out; 
+}
+
+nav a:hover::after {
+    width: 100%; 
 }
 .search-bar {
     display: flex;
@@ -106,7 +136,6 @@ nav a{
 .button3:hover{
     background: white;
     color: #FF6F28;
-    cursor: pointer;
 }
 .content{
     display: flex;
@@ -144,11 +173,13 @@ nav a{
     align-items: center;
     position: fixed;
     background: #F77E23;
+    color: white;
     border-radius: 5000px;
     font-size: 25px;
     border: none;
     padding: 10px 12px;
     left: 93%;
+    z-index: 9;
 }
 .information{
     display: flex;
@@ -164,13 +195,22 @@ nav a{
     left: 20%;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
+
 .infor1{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 20px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0%;
 }
+.infor1:hover {
+    color: #F77E23;
+}
+
 
 .icon{
     display: flex;
@@ -209,21 +249,74 @@ nav a{
     letter-spacing: 0%;
     color: #F77E23
 }
-.card{
+
+.card {
     display: flex;
-    position: relative;
-    max-width: 649px;
-    max-height: 432px;
-    margin-top: 60px;
-    margin-left: -299px;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
-@media (max-width:1100px){
+.card-item{
+    border-radius: 10px;
+    text-align: start;
+    padding: 10px;
+    width: 23%;
+    position: relative;
+}
+.card-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.card-item h2{
+    font-family: "Crimson Text", serif;
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #fff;
+}
+.card .button-item {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: absolute; 
+    margin-top: 15%;
+    left: 4%;
+    right: 4%;
+    padding: 0 10px; 
+    z-index: 1;
+}
+.card .button-item button {
+    background: #FF6F28; 
+    color: white; 
+    border: none; 
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px; 
+}
+.card .button :hover{
+    background: green;
+    color: white
+}
+
+@media (max-width:1070px){
     .container{
         background-image: url(img/background1.png);
         background-repeat: no-repeat;
         background-position-y: -20px;
         background-position-x: 10px -10px ;
-        background-size: 100% 720px ;
+        background-size: 100% 620px ;
     }
     .container:before{
         content: "";
@@ -231,7 +324,7 @@ nav a{
         top: 0;
         left: 0;
         width: 100%;
-        height: 700px;
+        height: 600px;
         background: rgba(0, 0, 0, 0.4);   
         z-index: 1;
     }
@@ -239,48 +332,108 @@ nav a{
         position: relative;
         z-index: 2;
     }
-    header{
+    .menu {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         background-color: white;
         z-index: 3;
+        padding: 10px 20px;
     }
-    .button{
-        display: none;
+    .button-user{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        height: 100vh;
+        width: 70%;
+        padding: 20px;
+        z-index: 99;
+        transition: all 0.3s ease;
+    }
+    .button-user.active{
+        right: 0;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        height: 100vh;
+        width: 30%;
+        padding: 20px;
+        z-index: 9999;
+        transition: all 0.3s ease;
+    }
+    nav.active{
+        left: 0;
+    }
+    nav ul{
+        flex-direction: column;
+        margin-top: 30%;
+        gap: 60px;
     }
     .bar{
         display: block;
         position: relative;
+        cursor: pointer;
+
     }
-    nav {
-        display: none;
-    }
-    .bar-menu{
+    .bar-menu {
         display: block;
-        position: relative;
-        color: rgb(148, 141, 141);
-        padding: 0px 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #FF6F28;
+        margin-left: 20px;
+        z-index: 10000;
     }
+    
+
     .scroll{
         display: flex;
         justify-content: center;
         align-items: center;
         position: fixed;
         background: #F77E23;
-        border-radius: 5000px;
-        font-size: 25px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        font-size: 10px;
         border: none;
         padding: 10px 12px;
         left: 93%;
     }
+    .information {
+            position: relative;
+            z-index: 1;      
 }
-@media (max-width:792px){
+    .infor1{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+    .card-item h2{
+        font-size: 18px;
+    }
+    .card .button-item button{
+        width: 40px; 
+        height: 40px; 
+        font-size: 14px;
+        z-index: 1; 
+    }
+}
+@media (max-width:770px){
     .container{
         background-image: url(img/background1.png);
         background-repeat: no-repeat;
         background-position-y: -20px;
         background-position-x: 10px -10px ;
-        background-size: 100% 650px ;
+        background-size: 100% 90% ;
     }
     .container:before{
         content: "";
@@ -288,7 +441,7 @@ nav a{
         top: 0;
         left: 0;
         width: 100%;
-        height: 630px;
+        height: 87%;
         background: rgba(0, 0, 0, 0.4);   
         z-index: 1;
     }
@@ -318,6 +471,20 @@ nav a{
         padding: 10px 12px;
         left: 90%;
     }
+    .information{
+        position: relative;
+        z-index: 1;
+    }
+    .infor1{
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+    
+    .card-item h2{
+        font-size: 14px;
+    }
 
 }
 @media (max-width: 750px){
@@ -331,10 +498,40 @@ nav a{
         font-size: 15px;
         line-height: 1.5;
     }
-
+    .information{
+        position: relative;
+        z-index: 1;
+    }
+    .infor1{
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
 
 }
 @media (max-width:635px){
+    .container{
+        background-image: url(img/background1.png);
+        background-repeat: no-repeat;
+        background-position-y: -20px;
+        background-position-x: 10px -10px ;
+        background-size: 100% 95% ;
+    }
+    .container:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 91.5%;
+        background: rgba(0, 0, 0, 0.4);   
+        z-index: 1;
+    }
+    .container > *{
+        position: relative;
+        z-index: 2;
+    }
     .information{
         justify-content: center;
         align-items: center;
@@ -343,15 +540,32 @@ nav a{
         padding: 20px;
         left: 10%;
         margin-top: 20px;
+        z-index: 1;
     }
+    .infor1{
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+    .card .button-item button{
+        width: 30px; 
+        height: 30px; 
+        font-size: 12px; 
+        z-index: 1;
+    }
+    .card-item h2{
+        font-size: 10px;
+    }
+    
 }
-@media (max-width:554px){
+@media (max-width:550px){
     .container{
         background-image: url(img/background1.png);
         background-repeat: no-repeat;
         background-position-y: -20px;
         background-position-x: 10px -10px ;
-        background-size: 100% 670px ;
+        background-size: 100% 92% ;
     }
     .container:before{
         content: "";
@@ -359,7 +573,7 @@ nav a{
         top: 0;
         left: 0;
         width: 100%;
-        height: 650px;
+        height: 89%;
         background: rgba(0, 0, 0, 0.4);   
         z-index: 1;
     }
@@ -379,33 +593,27 @@ nav a{
         padding: 10px 12px;
         left: 85%;
     }
-}
-@media (max-width: 477px){
-    .container{
-        background-image: url(img/background1.png);
-        background-repeat: no-repeat;
-        background-position-y: -20px;
-        background-position-x: 10px -10px ;
-        background-size: 100% 670px ;
-    }
-    .container:before{
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 650px;
-        background: rgba(0, 0, 0, 0.4);   
+    .information{
+        position: relative;
+        font-size: 10px;
         z-index: 1;
     }
-    .container > *{
-        position: relative;
-        z-index: 2;
+    .card .button-item button{
+        width: 20px; 
+        height: 20px; 
+        font-size: 10px; 
+        z-index: 1;
+    }
+}
+@media (max-width: 420px){
+    .information{
+        font-size: 9px;
     }
     .content p {
         font-size: 11px;
         line-height: 1.5;
     }
+    
     .icon {
         max-width: 40px;
         max-height: 40px;
@@ -422,5 +630,14 @@ nav a{
         border: none;
         padding: 10px 12px;
         left: 85%;
+    }
+    .information{
+        position: relative;
+        z-index: 1;
+    }
+    
+    .card-item h2{
+        font-size: 8px;
+
     }
 }
